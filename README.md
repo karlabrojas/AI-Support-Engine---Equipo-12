@@ -1,5 +1,11 @@
 # AI Support Engine
 
+## Integrantes del equipo
+
+- Karla Beatriz Rojas Rojas | 3523110235
+- Angel Romero Barragan | 3523110195
+- Kevin Ricardo Simon Alfaro | 3523110374
+
 ## 1. Descripción del proyecto
 
 AI Support Engine es un prototipo de clasificación y análisis de solicitudes de soporte técnico mediante dos enfoques:
@@ -28,36 +34,36 @@ El sistema contempla las siguientes funcionalidades:
 
 ## 4. Categorías de clasificación
 
-| Categoría | Descripción |
-|---|---|
-| ACCESS | Problemas de acceso, inicio de sesión y credenciales. |
-| BUG | Errores, fallas y comportamientos inesperados del sistema. |
-| FEATURE | Solicitudes de nuevas funcionalidades o mejoras. |
-| SECURITY | Vulnerabilidades, filtraciones y posibles incidentes de seguridad. |
+| Categoría | Descripción                                                        |
+| --------- | ------------------------------------------------------------------ |
+| ACCESS    | Problemas de acceso, inicio de sesión y credenciales.              |
+| BUG       | Errores, fallas y comportamientos inesperados del sistema.         |
+| FEATURE   | Solicitudes de nuevas funcionalidades o mejoras.                   |
+| SECURITY  | Vulnerabilidades, filtraciones y posibles incidentes de seguridad. |
 
 ## 5. Niveles de prioridad
 
-| Prioridad | Descripción |
-|---|---|
-| LOW | Solicitud de bajo impacto. |
-| MEDIUM | Problema que afecta una funcionalidad o usuario. |
-| HIGH | Problema de impacto importante o que afecta a varios usuarios. |
-| CRITICAL | Incidente crítico, especialmente relacionado con seguridad o exposición de datos. |
+| Prioridad | Descripción                                                                       |
+| --------- | --------------------------------------------------------------------------------- |
+| LOW       | Solicitud de bajo impacto.                                                        |
+| MEDIUM    | Problema que afecta una funcionalidad o usuario.                                  |
+| HIGH      | Problema de impacto importante o que afecta a varios usuarios.                    |
+| CRITICAL  | Incidente crítico, especialmente relacionado con seguridad o exposición de datos. |
 
 Los incidentes clasificados como SECURITY deben marcarse para revisión humana.
 
 ## 6. Tecnologías utilizadas
 
-| Tecnología | Uso |
-|---|---|
-| Node.js | Entorno de ejecución. |
-| Express | Desarrollo de la API REST. |
-| JavaScript | Lenguaje de programación. |
-| Zod | Validación de entradas. |
-| Jest | Pruebas unitarias. |
-| Supertest | Pruebas de endpoints HTTP. |
-| Nodemon | Reinicio automático durante el desarrollo. |
-| Ollama | Ejecución local del modelo generativo (integración pendiente). |
+| Tecnología | Uso                                                            |
+| ---------- | -------------------------------------------------------------- |
+| Node.js    | Entorno de ejecución.                                          |
+| Express    | Desarrollo de la API REST.                                     |
+| JavaScript | Lenguaje de programación.                                      |
+| Zod        | Validación de entradas.                                        |
+| Jest       | Pruebas unitarias.                                             |
+| Supertest  | Pruebas de endpoints HTTP.                                     |
+| Nodemon    | Reinicio automático durante el desarrollo.                     |
+| Ollama     | Ejecución local del modelo generativo (integración pendiente). |
 
 ## 7. Arquitectura del proyecto
 
@@ -165,10 +171,10 @@ http://localhost:3000/api/analyze
 
 ### Parámetros de entrada
 
-| Campo | Tipo | Descripción |
-|---|---|---|
-| message | String | Mensaje del usuario que se analizará. |
-| mode | String | Motor que se utilizará: traditional o generative. |
+| Campo   | Tipo   | Descripción                                       |
+| ------- | ------ | ------------------------------------------------- |
+| message | String | Mensaje del usuario que se analizará.             |
+| mode    | String | Motor que se utilizará: traditional o generative. |
 
 ### Ejemplo de solicitud
 
@@ -193,13 +199,13 @@ http://localhost:3000/api/analyze
 
 ### Estructura de respuesta
 
-| Campo | Tipo | Descripción |
-|---|---|---|
-| category | String | Categoría asignada. |
-| priority | String | Nivel de prioridad. |
-| response | String | Respuesta generada o predefinida. |
+| Campo               | Tipo    | Descripción                         |
+| ------------------- | ------- | ----------------------------------- |
+| category            | String  | Categoría asignada.                 |
+| priority            | String  | Nivel de prioridad.                 |
+| response            | String  | Respuesta generada o predefinida.   |
 | requiresHumanReview | Boolean | Indica si requiere revisión humana. |
-| mode | String | Motor utilizado. |
+| mode                | String  | Motor utilizado.                    |
 
 **Nota:** El modo `generative` todavía se encuentra pendiente de integración. Actualmente, el controlador devuelve HTTP 501 para ese modo.
 
@@ -230,25 +236,25 @@ La validación completa de la API y la comparación de ambos motores se ampliar�
 
 ## 11. Estado actual del desarrollo
 
-| Funcionalidad | Estado |
-|---|---|
-| Configuración inicial del proyecto | Completada |
-| Configuración de Express | Completada |
-| Estructura modular del proyecto | Implementada |
-| Motor tradicional | Implementado |
-| Clasificación de cuatro categorías | Implementada |
-| Asignación de prioridades | Implementada |
-| Respuestas predefinidas | Implementadas |
-| Validación de entradas con Zod | Implementada |
-| Endpoint POST /api/analyze | Implementado |
-| Pruebas unitarias del motor tradicional | Implementadas |
-| Verificación integral del endpoint | Pendiente de corrección |
-| Integración del modelo generativo | Pendiente |
-| Validación de respuestas generativas | Pendiente |
-| Protección y manejo de errores del proveedor | Pendiente de completar |
-| Casos comparativos de ambos motores | Pendiente |
-| Cálculo de precisión y exactitud | Pendiente |
-| Conclusión técnica | Pendiente |
+| Funcionalidad                                | Estado                  |
+| -------------------------------------------- | ----------------------- |
+| Configuración inicial del proyecto           | Completada              |
+| Configuración de Express                     | Completada              |
+| Estructura modular del proyecto              | Implementada            |
+| Motor tradicional                            | Implementado            |
+| Clasificación de cuatro categorías           | Implementada            |
+| Asignación de prioridades                    | Implementada            |
+| Respuestas predefinidas                      | Implementadas           |
+| Validación de entradas con Zod               | Implementada            |
+| Endpoint POST /api/analyze                   | Implementado            |
+| Pruebas unitarias del motor tradicional      | Implementadas           |
+| Verificación integral del endpoint           | Pendiente de corrección |
+| Integración del modelo generativo            | Pendiente               |
+| Validación de respuestas generativas         | Pendiente               |
+| Protección y manejo de errores del proveedor | Pendiente de completar  |
+| Casos comparativos de ambos motores          | Pendiente               |
+| Cálculo de precisión y exactitud             | Pendiente               |
+| Conclusión técnica                           | Pendiente               |
 
 ## 12. Seguridad y consideraciones
 
