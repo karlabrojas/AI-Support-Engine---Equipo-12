@@ -1,7 +1,7 @@
 ﻿'use strict';
 // Comparativa de motores: node scripts/compare.js [--skip-generative]
 // Genera results/comparison.md y results/comparison.json
-try { require('dotenv').config(); } catch { /* sin dotenv */ }
+try { require('dotenv').config({ quiet: true }); } catch { /* sin dotenv */ }
 const fs = require('node:fs');
 const path = require('node:path');
 const cases = require('./cases');
@@ -97,3 +97,5 @@ async function main() {
 }
 
 main().catch((e) => { console.error('Error inesperado:', e.message); process.exit(1); });
+
+

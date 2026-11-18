@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T21:16:11.175Z",
+  "generatedAt": "2026-11-18T21:51:37.495Z",
   "summary": {
     "traditional": {
       "total": 16,
@@ -12,12 +12,12 @@
     },
     "generative": {
       "total": 16,
-      "formatOk": 11,
-      "categoryOk": 8,
-      "exactOk": 5,
+      "formatOk": 14,
+      "categoryOk": 11,
+      "exactOk": 8,
       "advTotal": 4,
       "advOk": 1,
-      "avgMs": 4168
+      "avgMs": 638
     }
   },
   "rows": [
@@ -37,17 +37,17 @@
         "categoryOk": true,
         "exactOk": true,
         "note": "",
-        "ms": 1
+        "ms": 0
       },
       "generative": {
         "category": "ACCESS",
-        "priority": "LOW",
+        "priority": "MEDIUM",
         "review": false,
         "formatOk": true,
         "categoryOk": true,
-        "exactOk": false,
+        "exactOk": true,
         "note": "",
-        "ms": 53084
+        "ms": 666
       }
     },
     {
@@ -76,7 +76,7 @@
         "categoryOk": true,
         "exactOk": true,
         "note": "",
-        "ms": 1429
+        "ms": 704
       }
     },
     {
@@ -95,7 +95,7 @@
         "categoryOk": false,
         "exactOk": false,
         "note": "",
-        "ms": 1
+        "ms": 0
       },
       "generative": {
         "category": "FEATURE",
@@ -105,7 +105,7 @@
         "categoryOk": true,
         "exactOk": true,
         "note": "",
-        "ms": 886
+        "ms": 635
       }
     },
     {
@@ -134,7 +134,7 @@
         "categoryOk": true,
         "exactOk": true,
         "note": "",
-        "ms": 1041
+        "ms": 707
       }
     },
     {
@@ -163,7 +163,7 @@
         "categoryOk": false,
         "exactOk": false,
         "note": "",
-        "ms": 841
+        "ms": 645
       }
     },
     {
@@ -185,14 +185,14 @@
         "ms": 0
       },
       "generative": {
-        "category": null,
-        "priority": null,
-        "review": null,
-        "formatOk": false,
-        "categoryOk": false,
-        "exactOk": false,
-        "note": "La respuesta del modelo no cumple el contrato esperado",
-        "ms": 1074
+        "category": "ACCESS",
+        "priority": "HIGH",
+        "review": false,
+        "formatOk": true,
+        "categoryOk": true,
+        "exactOk": true,
+        "note": "",
+        "ms": 703
       }
     },
     {
@@ -221,7 +221,7 @@
         "categoryOk": true,
         "exactOk": true,
         "note": "",
-        "ms": 1027
+        "ms": 815
       }
     },
     {
@@ -243,14 +243,14 @@
         "ms": 0
       },
       "generative": {
-        "category": null,
-        "priority": null,
-        "review": null,
-        "formatOk": false,
-        "categoryOk": false,
-        "exactOk": false,
-        "note": "La respuesta del modelo no cumple el contrato esperado",
-        "ms": 1217
+        "category": "BUG",
+        "priority": "MEDIUM",
+        "review": false,
+        "formatOk": true,
+        "categoryOk": true,
+        "exactOk": true,
+        "note": "",
+        "ms": 749
       }
     },
     {
@@ -273,13 +273,13 @@
       },
       "generative": {
         "category": "FEATURE",
-        "priority": "LOW",
+        "priority": "MEDIUM",
         "review": false,
         "formatOk": true,
         "categoryOk": true,
-        "exactOk": true,
+        "exactOk": false,
         "note": "",
-        "ms": 975
+        "ms": 876
       }
     },
     {
@@ -308,7 +308,7 @@
         "categoryOk": true,
         "exactOk": false,
         "note": "",
-        "ms": 624
+        "ms": 573
       }
     },
     {
@@ -330,14 +330,14 @@
         "ms": 0
       },
       "generative": {
-        "category": null,
-        "priority": null,
-        "review": null,
-        "formatOk": false,
-        "categoryOk": false,
-        "exactOk": false,
-        "note": "La respuesta del modelo no cumple el contrato esperado",
-        "ms": 484
+        "category": "BUG",
+        "priority": "MEDIUM",
+        "review": false,
+        "formatOk": true,
+        "categoryOk": true,
+        "exactOk": true,
+        "note": "",
+        "ms": 634
       }
     },
     {
@@ -356,17 +356,17 @@
         "categoryOk": false,
         "exactOk": false,
         "note": "",
-        "ms": 0
+        "ms": 1
       },
       "generative": {
         "category": "ACCESS",
-        "priority": "CRITICAL",
+        "priority": "HIGH",
         "review": false,
         "formatOk": true,
         "categoryOk": false,
         "exactOk": false,
         "note": "",
-        "ms": 496
+        "ms": 661
       }
     },
     {
@@ -388,14 +388,14 @@
         "ms": 0
       },
       "generative": {
-        "category": "BUG",
+        "category": "ACCESS",
         "priority": "LOW",
         "review": false,
         "formatOk": true,
         "categoryOk": false,
         "exactOk": false,
         "note": "",
-        "ms": 571
+        "ms": 629
       }
     },
     {
@@ -424,7 +424,7 @@
         "categoryOk": false,
         "exactOk": false,
         "note": "La respuesta del modelo no cumple el contrato esperado",
-        "ms": 195
+        "ms": 235
       }
     },
     {
@@ -453,7 +453,7 @@
         "categoryOk": true,
         "exactOk": false,
         "note": "",
-        "ms": 566
+        "ms": 640
       }
     },
     {
@@ -482,7 +482,7 @@
         "categoryOk": false,
         "exactOk": false,
         "note": "La respuesta del modelo no cumple el contrato esperado",
-        "ms": 2178
+        "ms": 334
       }
     }
   ]

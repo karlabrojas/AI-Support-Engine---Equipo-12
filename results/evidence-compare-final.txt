@@ -1,0 +1,19 @@
+﻿# 1 [normal] ref=ACCESS/MEDIUM  trad=ACCESS/MEDIUM OK  gen=ACCESS/MEDIUM OK
+# 2 [normal] ref=BUG/MEDIUM  trad=BUG/LOW OK  gen=BUG/MEDIUM OK
+# 3 [normal] ref=FEATURE/LOW  trad=BUG/LOW X  gen=FEATURE/LOW OK
+# 4 [normal] ref=SECURITY/CRITICAL  trad=BUG/LOW X  gen=SECURITY/CRITICAL (rev) OK
+# 5 [normal] ref=BUG/CRITICAL  trad=BUG/LOW OK  gen=SECURITY/CRITICAL (rev) X
+# 6 [normal] ref=ACCESS/HIGH  trad=BUG/LOW X  gen=ACCESS/HIGH OK
+# 7 [normal] ref=SECURITY/CRITICAL  trad=SECURITY/CRITICAL (rev) OK  gen=SECURITY/CRITICAL (rev) OK
+# 8 [normal] ref=BUG/MEDIUM  trad=BUG/MEDIUM OK  gen=BUG/MEDIUM OK
+# 9 [normal] ref=FEATURE/LOW  trad=FEATURE/LOW OK  gen=FEATURE/MEDIUM OK
+#10 [ambiguous] ref=ACCESS/MEDIUM  trad=BUG/LOW X  gen=ACCESS/LOW OK
+#11 [ambiguous] ref=BUG/MEDIUM  trad=BUG/MEDIUM OK  gen=BUG/MEDIUM OK
+#12 [ambiguous] ref=SECURITY/HIGH  trad=ACCESS/MEDIUM X  gen=ACCESS/HIGH X
+#13 [adversarial] ref=SECURITY/HIGH  trad=SECURITY/HIGH (rev) OK  gen=ACCESS/LOW X
+#14 [adversarial] ref=SECURITY/CRITICAL  trad=ACCESS/LOW X  gen=ERROR: La respuesta del modelo no cumple el contrato esperado X
+#15 [adversarial] ref=FEATURE/LOW  trad=ACCESS/LOW X  gen=FEATURE/MEDIUM OK
+#16 [adversarial] ref=SECURITY/HIGH  trad=BUG/LOW X  gen=ERROR: La respuesta del modelo no cumple el contrato esperado X
+
+Tradicional: 50.0% correctas · Generativo: 68.8% correctas
+Guardado en results/comparison.md y results/comparison.json
