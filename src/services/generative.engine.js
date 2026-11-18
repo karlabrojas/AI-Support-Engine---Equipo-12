@@ -2,7 +2,7 @@ const { generateWithOllama } = require("./ollama.client");
 const {
   validateGenerativeResponse
 } = require("./response.validator");
-const {
+  const {
   detectPromptInjection
 } = require("../utils/security");
 
