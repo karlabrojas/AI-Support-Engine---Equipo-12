@@ -2,8 +2,21 @@ const { generateWithOllama } = require("./ollama.client");
 const {
   validateGenerativeResponse
 } = require("./response.validator");
+const {
+  detectPromptInjection
+} = require("../utils/security");
 
 async function analyzeGenerative(message) {
+  if (detectPromptInjection(message)) {
+    return {
+      category: "SECURITY",
+      priority: "CRITICAL",
+      response: "Se detectó un intento de manipulación del modelo. El incidente será revisado por seguridad.",
+      requiresHumanReview: true,
+      mode: "generative"
+    };
+  }
+
   const modelResponse = await generateWithOllama(message);
 
   let parsedResponse;
