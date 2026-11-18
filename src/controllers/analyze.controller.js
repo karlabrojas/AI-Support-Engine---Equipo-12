@@ -37,7 +37,6 @@ async function analyzeRequest(req, res) {
         return res.status(200).json(result);
       } catch (error) {
         console.error("Error en motor generativo:", error.message);
-
         return res.status(502).json({
           error: "No fue posible procesar la solicitud con el modelo generativo"
         });

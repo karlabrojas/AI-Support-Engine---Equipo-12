@@ -30,11 +30,40 @@ Debes devolver exclusivamente un objeto JSON con esta estructura:
   "response": "Respuesta profesional y contextualizada"
 }
 
-Categorías:
-ACCESS: problemas de acceso, inicio de sesión o credenciales.
-BUG: errores, fallas o comportamientos inesperados.
-FEATURE: solicitudes de nuevas funcionalidades.
-SECURITY: vulnerabilidades, filtraciones, robo de credenciales o accesos no autorizados.
+
+Categorías (selecciona exactamente una):
+
+ACCESS:
+Problemas para iniciar sesión, recuperar contraseñas,
+autenticarse o acceder a una cuenta.
+
+BUG:
+Errores existentes del sistema, fallas inesperadas,
+cierres de aplicaciones, comportamientos incorrectos
+o funciones que no trabajan como deberían.
+
+FEATURE:
+Solicitudes de nuevas funcionalidades, mejoras,
+opciones adicionales o capacidades que todavía
+no existen en el sistema.
+
+Ejemplos:
+- "Quiero exportar reportes a PDF" = FEATURE.
+- "La exportación a PDF falla" = BUG.
+- "No puedo iniciar sesión" = ACCESS.
+- "Quiero recuperar mi contraseña" = ACCESS.
+
+SECURITY:
+Vulnerabilidades, filtraciones, robo de credenciales,
+accesos no autorizados o exposición de información privada.
+
+Reglas:
+- Una solicitud de funcionalidad nueva siempre es FEATURE,
+  salvo que también reporte explícitamente un error existente.
+- No clasifiques una solicitud como BUG solo porque mencione
+  una aplicación, un reporte o una funcionalidad.
+- No inventes incidentes que el usuario no reportó.
+
 
 Prioridades:
 LOW: solicitudes de poca urgencia.
