@@ -23,14 +23,25 @@ async function analyzeRequest(req, res) {
     // Ejecutar motor correspondiente
     if (mode === "traditional") {
       const result = analyzeTraditional(message);
-
+      const {
+      analyzeGenerative
+    } = require("../services/generative.engine");
       return res.status(200).json(result);
     }
 
     // El motor generativo se integrará en la siguiente fase
-    return res.status(501).json({
-      error: "Motor generativo pendiente de integración"
-    });
+    if (mode === "generative") {
+    try {
+      const result = await analyzeGenerative(message);
+      return res.status(200).json(result);
+    } catch (error) {
+      console.error("Error en motor generativo:", error.message);
+
+      return res.status(502).json({
+        error: "No fue posible procesar la solicitud con el modelo generativo"
+      });
+    }
+  }
 
   } catch (error) {
     console.error("Error al analizar solicitud:", error.message);
