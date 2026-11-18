@@ -1,5 +1,6 @@
 const OLLAMA_URL = process.env.OLLAMA_URL || "http://127.0.0.1:11434";
 const OLLAMA_MODEL = process.env.OLLAMA_MODEL || "llama3.2:3b";
+const { sanitizeSensitiveData } = require("../utils/security");
 
 async function generateWithOllama(message) {
   const controller = new AbortController();
@@ -76,7 +77,7 @@ No inventes información que el usuario no haya proporcionado.`
           },
           {
             role: "user",
-            content: message
+            content: sanitizeSensitiveData(message)
           }
         ]
       }),
