@@ -6,7 +6,11 @@ const analyzeSchema = z.object({
     .min(1, "El mensaje no puede estar vacío")
     .max(5000, "El mensaje supera el límite permitido"),
 
-  mode: z.enum(["traditional", "generative"])
+  mode: z.enum([
+    "traditional",
+    "generative",
+    "machine-learning"
+  ])
 }).strict();
 
 module.exports = {

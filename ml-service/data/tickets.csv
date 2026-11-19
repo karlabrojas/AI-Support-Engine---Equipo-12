@@ -1,0 +1,41 @@
+message,category
+"No puedo iniciar sesión en mi cuenta",ACCESS
+"Olvidé mi contraseña y no puedo entrar",ACCESS
+"Mi usuario no reconoce mis credenciales",ACCESS
+"No puedo recuperar el acceso a mi cuenta",ACCESS
+"Necesito restablecer mi contraseña",ACCESS
+"No puedo acceder al sistema",ACCESS
+"Mi cuenta está bloqueada",ACCESS
+"El inicio de sesión no funciona para mi usuario",ACCESS
+"No puedo entrar después de cambiar mi contraseña",ACCESS
+"Necesito ayuda para recuperar mi acceso",ACCESS
+"La aplicación se cierra cuando inicio sesión",BUG
+"El sistema muestra un error al guardar",BUG
+"El botón de enviar no responde",BUG
+"La página se queda cargando indefinidamente",BUG
+"Los datos desaparecen después de actualizar",BUG
+"El sistema muestra información incorrecta",BUG
+"Hay un error al generar el reporte",BUG
+"La aplicación presenta fallas al abrir",BUG
+"No funciona la búsqueda de registros",BUG
+"El sistema se congela al procesar una solicitud",BUG
+"Quisiera agregar un filtro de búsqueda",FEATURE
+"Necesitamos una opción para exportar reportes",FEATURE
+"Sería útil agregar notificaciones automáticas",FEATURE
+"Solicito una función para descargar archivos",FEATURE
+"Me gustaría tener un panel de estadísticas",FEATURE
+"Agregar una opción para cambiar el idioma",FEATURE
+"Necesitamos poder editar el perfil de usuario",FEATURE
+"Quisiera una función para programar recordatorios",FEATURE
+"Sería bueno incorporar búsqueda avanzada",FEATURE
+"Solicito agregar un historial de actividades",FEATURE
+"Detecté un posible acceso no autorizado",SECURITY
+"Creo que alguien está intentando robar mi cuenta",SECURITY
+"El sistema expuso información confidencial",SECURITY
+"Encontré una vulnerabilidad de seguridad",SECURITY
+"Un usuario puede consultar datos de otra cuenta",SECURITY
+"Recibí un enlace sospechoso para obtener mis credenciales",SECURITY
+"Se filtraron datos personales de los usuarios",SECURITY
+"Hay actividad sospechosa en mi cuenta",SECURITY
+"Un usuario sin permisos puede acceder al panel administrativo",SECURITY
+"Creo que mis credenciales fueron comprometidas",SECURITY

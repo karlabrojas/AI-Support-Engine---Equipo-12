@@ -1,4 +1,4 @@
-
+const { analyzeWithML } = require("../services/ml.engine");
 const { analyzeSchema } = require("../utils/validation");
 const {
   analyzeTraditional
@@ -39,6 +39,18 @@ async function analyzeRequest(req, res) {
         console.error("Error en motor generativo:", error.message);
         return res.status(502).json({
           error: "No fue posible procesar la solicitud con el modelo generativo"
+        });
+      }
+    }
+
+    if (mode === "machine-learning") {
+      try {
+        const result = await analyzeWithML(message);
+        return res.status(200).json(result);
+      } catch (error) {
+        console.error("Error en motor ML:", error.message);
+        return res.status(502).json({
+          error: "No fue posible procesar la solicitud con el motor ML"
         });
       }
     }
