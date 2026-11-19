@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fb">
+    <meta name="description" content="Clasifica solicitudes de soporte con motores tradicional y generativo.">
+    <title>AI Support Engine | Centro de análisis</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="AI Support Engine, inicio">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+              <path d="M16 3.5 27 9.75v12.5L16 28.5 5 22.25V9.75L16 3.5Z" stroke="currentColor" stroke-width="1.7"/>
+              <path d="m11 19 3.2-7h1.7l3.2 7m-6.9-2h5.7M16 8.5v2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="brand-copy">
+            <strong>AI Support Engine</strong>
+            <span>Centro de análisis</span>
+          </span>
+        </a>
+        <div class="topbar-meta">
+          <span class="api-indicator"><span class="status-dot"></span> API local</span>
+          <span class="version-label">Equipo 12</span>
+        </div>
+      </header>
+
+      <main>
+        <section class="intro">
+          <div class="eyebrow"><span class="eyebrow-line"></span> SOPORTE INTELIGENTE</div>
+          <h1>Entiende cada solicitud.<br><span>Responde mejor.</span></h1>
+          <p>Analiza, clasifica y prioriza mensajes de soporte con inteligencia tradicional o generativa.</p>
+        </section>
+
+        <section class="workspace" aria-label="Análisis de solicitudes">
+          <article class="panel input-panel">
+            <div class="panel-heading">
+              <div>
+                <span class="step-label">PASO 01</span>
+                <h2>Cuéntanos qué ocurrió</h2>
+              </div>
+              <span class="heading-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M5 5.75A2.75 2.75 0 0 1 7.75 3h8.5A2.75 2.75 0 0 1 19 5.75v8.5A2.75 2.75 0 0 1 16.25 17H10l-5 4V5.75Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  <path d="M8.5 8h7m-7 3.5h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </div>
+
+            <form id="analyze-form">
+              <fieldset class="mode-picker">
+                <legend>Elige cómo analizar</legend>
+                <label class="mode-option">
+                  <input type="radio" name="mode" value="traditional" checked>
+                  <span class="mode-card">
+                    <span class="mode-symbol traditional-symbol" aria-hidden="true">T</span>
+                    <span class="mode-copy"><strong>Tradicional</strong><small>Rápido · Basado en reglas</small></span>
+                    <span class="radio-indicator" aria-hidden="true"></span>
+                  </span>
+                </label>
+                <label class="mode-option">
+                  <input type="radio" name="mode" value="generative">
+                  <span class="mode-card">
+                    <span class="mode-symbol generative-symbol" aria-hidden="true">G</span>
+                    <span class="mode-copy"><strong>Generativo</strong><small>Contextual · Requiere Ollama</small></span>
+                    <span class="radio-indicator" aria-hidden="true"></span>
+                  </span>
+                </label>
+                <label class="mode-option">
+                  <input type="radio" name="mode" value="compare">
+                  <span class="mode-card">
+                    <span class="mode-symbol compare-symbol" aria-hidden="true">↔</span>
+                    <span class="mode-copy"><strong>Comparar ambos</strong><small>Resultados lado a lado</small></span>
+                    <span class="radio-indicator" aria-hidden="true"></span>
+                  </span>
+                </label>
+              </fieldset>
+
+              <div class="message-label-row">
+                <label for="message">Mensaje de soporte</label>
+                <span id="character-count">0 / 5000</span>
+              </div>
+              <textarea
+                id="message"
+                name="message"
+                maxlength="5000"
+                placeholder="Ej.: No puedo iniciar sesión desde esta mañana..."
+                required
+              ></textarea>
+              <p class="field-hint">Incluye los detalles relevantes. No compartas contraseñas ni datos confidenciales.</p>
+
+              <div class="examples">
+                <span>Prueba un ejemplo</span>
+                <div class="example-list">
+                  <button type="button" class="example-chip" data-message="No puedo iniciar sesión en mi cuenta desde esta mañana">Acceso</button>
+                  <button type="button" class="example-chip" data-message="La aplicación se cierra al guardar un reporte">Error</button>
+                  <button type="button" class="example-chip" data-message="Quisiera poder exportar mis reportes a PDF">Mejora</button>
+                  <button type="button" class="example-chip" data-message="Detecté que datos personales quedaron expuestos públicamente">Seguridad</button>
+                </div>
+              </div>
+
+              <button id="analyze-button" class="submit-button" type="submit">
+                <span class="button-label">Analizar solicitud</span>
+                <svg class="button-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M4 10h12m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <p id="request-status" class="request-status" role="status" aria-live="polite"></p>
+            </form>
+          </article>
+
+          <section class="panel results-panel" aria-labelledby="results-title" aria-live="polite">
+            <div class="panel-heading results-heading">
+              <div>
+                <span class="step-label">PASO 02</span>
+                <h2 id="results-title">Resultado del análisis</h2>
+              </div>
+              <span class="result-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M4 19.5h16M6.5 16V10m5.5 6V5m5.5 11v-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                  <circle cx="6.5" cy="7" r="2" stroke="currentColor" stroke-width="1.6"/>
+                  <circle cx="17.5" cy="9.5" r="2" stroke="currentColor" stroke-width="1.6"/>
+                </svg>
+              </span>
+            </div>
+            <div id="results" class="results-content">
+              <div class="empty-state">
+                <span class="empty-art" aria-hidden="true">
+                  <svg viewBox="0 0 88 88" fill="none">
+                    <rect x="17" y="13" width="54" height="62" rx="12" fill="#F1F4FB" stroke="#DBE2F0" stroke-width="1.5"/>
+                    <path d="M30 33h28M30 43h19M30 53h13" stroke="#A8B5CD" stroke-width="2.5" stroke-linecap="round"/>
+                    <circle cx="61" cy="61" r="13" fill="#E8EAFE" stroke="#fff" stroke-width="3"/>
+                    <path d="m57 61 2.7 2.7 5.7-6" stroke="#6562DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <h3>Tu análisis aparecerá aquí</h3>
+                <p>Escribe un mensaje y elige un motor para descubrir la categoría, prioridad y siguiente paso.</p>
+                <div class="category-legend" aria-label="Categorías disponibles">
+                  <span><i class="legend-dot access-dot"></i>Acceso</span>
+                  <span><i class="legend-dot bug-dot"></i>Error</span>
+                  <span><i class="legend-dot feature-dot"></i>Mejora</span>
+                  <span><i class="legend-dot security-dot"></i>Seguridad</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <footer class="page-footer">
+          <span><span class="footer-mark">✳</span> Clasificación asistida por IA, con revisión humana para incidentes de seguridad.</span>
+          <span>AI Support Engine <span class="footer-separator">·</span> Proyecto académico</span>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
