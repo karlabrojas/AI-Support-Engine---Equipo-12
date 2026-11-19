@@ -151,6 +151,16 @@ npm start
 
 Por defecto, el servidor utiliza el puerto 3000.
 
+### Interfaz web
+
+Con el servidor iniciado, abre `http://localhost:3000` en el navegador. Escribe una solicitud o selecciona uno de los ejemplos y elige:
+
+- **Tradicional:** clasificación basada en reglas.
+- **Generativo:** análisis con Ollama. Requiere que Ollama esté iniciado y que el modelo configurado esté instalado.
+- **Comparar ambos:** muestra las respuestas de ambos motores lado a lado.
+
+La interfaz presenta categoría, prioridad, respuesta sugerida y avisa cuando un incidente requiere revisión humana. La API sigue disponible en `POST /api/analyze`.
+
 ## 9. API REST
 
 ### Endpoint de análisis

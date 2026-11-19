@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("node:path");
 const analyzeRoutes = require("./routes/analyze.routes");
 
 const app = express();
@@ -8,6 +9,9 @@ app.use(express.json({ limit: "10kb" }));
 
 // Ruta principal de análisis
 app.use("/api", analyzeRoutes);
+
+// Interfaz web
+app.use(express.static(path.join(__dirname, "../public")));
 
 // Manejo de rutas inexistentes
 app.use((req, res) => {
