@@ -1,201 +1,112 @@
 # AI Support Engine
 
+Prototipo de clasificación y análisis de solicitudes de soporte técnico con tres enfoques: motor tradicional (reglas), motor generativo (Ollama) y motor de Machine Learning (Python).
+
 ## Integrantes del equipo
 
 - Karla Beatriz Rojas Rojas | 3523110235
 - Angel Romero Barragan | 3523110195
 - Kevin Ricardo Simon Alfaro | 3523110374
 
-## 1. Descripción del proyecto
+## 1. Descripción
 
-AI Support Engine es un prototipo de clasificación y análisis de solicitudes de soporte técnico mediante dos enfoques:
+La API recibe un mensaje de soporte y devuelve categoría, prioridad, respuesta sugerida y si requiere revisión humana. El objetivo es comparar los enfoques y evaluar su precisión.
 
-- **Motor tradicional:** utiliza reglas y palabras clave para identificar la categoría y prioridad de una incidencia, y genera una respuesta predefinida.
-- **Motor generativo:** utilizará un modelo de inteligencia artificial para interpretar el contexto de las solicitudes, clasificarlas y generar respuestas profesionales y contextualizadas.
+| Motor | Modo (`mode`) | Descripción |
+| ----- | ------------- | ----------- |
+| Tradicional | `traditional` | Reglas y palabras clave. Respuesta predefinida. |
+| Generativo | `generative` | Modelo local `llama3.2:3b` con Ollama. Valida el JSON del modelo y redacta datos sensibles. |
+| Machine Learning | `machine-learning` | Clasificador scikit-learn servido con FastAPI (`ml-service/`). Prioridad fija: SECURITY = HIGH, el resto = MEDIUM. |
 
-El objetivo es comparar ambos enfoques y evaluar su precisión en diferentes escenarios de soporte técnico.
+## 2. Categorías y prioridades
 
-## 2. Objetivo general
+| Categoría | Descripción |
+| --------- | ----------- |
+| ACCESS | Acceso, inicio de sesión y credenciales. |
+| BUG | Errores y comportamientos inesperados. |
+| FEATURE | Nuevas funcionalidades o mejoras. |
+| SECURITY | Vulnerabilidades, filtraciones e incidentes de seguridad. |
 
-Desarrollar una API REST que permita analizar mensajes de soporte técnico mediante un motor tradicional y un motor generativo, devolviendo resultados estructurados y consistentes.
+Prioridades: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`. Los incidentes SECURITY se marcan para revisión humana.
 
-## 3. Alcance del proyecto
+## 3. Tecnologías
 
-El sistema contempla las siguientes funcionalidades:
+Node.js, Express, Zod, Jest, Supertest, Nodemon, Ollama, Python, FastAPI, scikit-learn.
 
-1. Clasificar solicitudes de soporte técnico.
-2. Asignar un nivel de prioridad.
-3. Generar respuestas profesionales.
-4. Identificar incidentes que requieren revisión humana.
-5. Validar las solicitudes recibidas por la API.
-6. Manejar errores de procesamiento y respuestas inválidas.
-7. Comparar los resultados del motor tradicional y generativo.
-8. Evaluar la precisión mediante casos de prueba previamente definidos.
-
-## 4. Categorías de clasificación
-
-| Categoría | Descripción                                                        |
-| --------- | ------------------------------------------------------------------ |
-| ACCESS    | Problemas de acceso, inicio de sesión y credenciales.              |
-| BUG       | Errores, fallas y comportamientos inesperados del sistema.         |
-| FEATURE   | Solicitudes de nuevas funcionalidades o mejoras.                   |
-| SECURITY  | Vulnerabilidades, filtraciones y posibles incidentes de seguridad. |
-
-## 5. Niveles de prioridad
-
-| Prioridad | Descripción                                                                       |
-| --------- | --------------------------------------------------------------------------------- |
-| LOW       | Solicitud de bajo impacto.                                                        |
-| MEDIUM    | Problema que afecta una funcionalidad o usuario.                                  |
-| HIGH      | Problema de impacto importante o que afecta a varios usuarios.                    |
-| CRITICAL  | Incidente crítico, especialmente relacionado con seguridad o exposición de datos. |
-
-Los incidentes clasificados como SECURITY deben marcarse para revisión humana.
-
-## 6. Tecnologías utilizadas
-
-| Tecnología | Uso                                                            |
-| ---------- | -------------------------------------------------------------- |
-| Node.js    | Entorno de ejecución.                                          |
-| Express    | Desarrollo de la API REST.                                     |
-| JavaScript | Lenguaje de programación.                                      |
-| Zod        | Validación de entradas.                                        |
-| Jest       | Pruebas unitarias.                                             |
-| Supertest  | Pruebas de endpoints HTTP.                                     |
-| Nodemon    | Reinicio automático durante el desarrollo.                     |
-| Ollama     | Ejecución local del modelo generativo (integración pendiente). |
-
-## 7. Arquitectura del proyecto
+## 4. Estructura
 
 ```text
-AI Support Engine/
-│
-├── src/
-│   ├── app.js
-│   ├── server.js
-│   │
-│   ├── controllers/
-│   │   └── analyze.controller.js
-│   │
-│   ├── routes/
-│   │   └── analyze.routes.js
-│   │
-│   ├── services/
-│   │   ├── traditional.engine.js
-│   │   ├── generative.engine.js
-│   │   ├── ollama.client.js
-│   │   └── response.validator.js
-│   │
-│   └── utils/
-│       ├── security.js
-│       └── validation.js
-│
-├── tests/
-│   └── traditional.test.js
-│
-├── .env.example
-├── .gitignore
-├── package.json
-├── package-lock.json
-└── README.md
+src/            API (app, server, controllers, routes, services, utils)
+public/         Interfaz web
+ml-service/     Servicio de Machine Learning (FastAPI)
+scripts/        Casos de prueba y comparativa de motores
+results/        Resultados de la comparativa
+tests/          Pruebas automatizadas (Jest)
+docs/evidence/  Evidencias de ejecución
 ```
 
-**Descripción de los componentes:**
+## 5. Instalación
 
-- `app.js`: configura Express, middleware y rutas.
-- `server.js`: inicia el servidor HTTP.
-- `analyze.controller.js`: recibe, valida y procesa las solicitudes.
-- `analyze.routes.js`: define el endpoint de análisis.
-- `traditional.engine.js`: implementa la clasificación mediante reglas.
-- `generative.engine.js`: destinado al procesamiento mediante el modelo generativo.
-- `ollama.client.js`: destinado a la comunicación con Ollama.
-- `response.validator.js`: destinado a validar las respuestas generadas.
-- `security.js`: destinado a las comprobaciones de seguridad.
-- `validation.js`: valida los datos recibidos por la API.
-- `traditional.test.js`: contiene pruebas del motor tradicional.
-
-## 8. Instalación y configuración
-
-### Requisitos previos
-
-- Node.js instalado.
-- npm instalado.
-- Git instalado.
-
-### Clonar el repositorio
+Requisitos: Node.js, npm, Git, Ollama y (opcional, para el motor ML) Python 3.
 
 ```bash
-git clone URL_DEL_REPOSITORIO
-cd "AI Support Engine"
-```
-
-### Instalar dependencias
-
-```bash
+git clone https://github.com/karlabrojas/AI-Support-Engine---Equipo-12.git
+cd AI-Support-Engine---Equipo-12
 npm install
 ```
 
-### Ejecutar el proyecto
+Crear el archivo `.env` a partir de `.env.example`:
 
-Modo desarrollo:
-
-```bash
-npm run dev
+```text
+PORT=3000
+OLLAMA_URL=http://127.0.0.1:11434
+OLLAMA_MODEL=llama3.2:3b
 ```
 
-Modo producción:
+Descargar el modelo generativo:
+
+```bash
+ollama pull llama3.2:3b
+```
+
+## 6. Ejecución
+
+API y interfaz web (puerto 3000):
 
 ```bash
 npm start
 ```
 
-Por defecto, el servidor utiliza el puerto 3000.
+Abrir `http://localhost:3000`. Para desarrollo: `npm run dev`.
 
-### Interfaz web
+Servicio de Machine Learning (puerto 8000), en otra terminal:
 
-Con el servidor iniciado, abre `http://localhost:3000` en el navegador. Escribe una solicitud o selecciona uno de los ejemplos y elige:
-
-- **Tradicional:** clasificación basada en reglas.
-- **Generativo:** análisis con Ollama. Requiere que Ollama esté iniciado y que el modelo configurado esté instalado.
-- **Comparar ambos:** muestra las respuestas de ambos motores lado a lado.
-
-La interfaz presenta categoría, prioridad, respuesta sugerida y avisa cuando un incidente requiere revisión humana. La API sigue disponible en `POST /api/analyze`.
-
-## 9. API REST
-
-### Endpoint de análisis
-
-**Método:** POST
-
-**Ruta:**
-
-```text
-/api/analyze
+```bash
+cd ml-service
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+uvicorn app.main:app --port 8000
 ```
 
-**URL local:**
+La URL del servicio ML se puede cambiar con la variable `ML_SERVICE_URL` (por defecto `http://127.0.0.1:8000`).
 
-```text
-http://localhost:3000/api/analyze
-```
+## 7. API REST
 
-### Parámetros de entrada
+`POST /api/analyze`
 
-| Campo   | Tipo   | Descripción                                       |
-| ------- | ------ | ------------------------------------------------- |
-| message | String | Mensaje del usuario que se analizará.             |
-| mode    | String | Motor que se utilizará: traditional o generative. |
+| Campo | Tipo | Descripción |
+| ----- | ---- | ----------- |
+| message | String | Mensaje a analizar. |
+| mode | String | `traditional`, `generative` o `machine-learning`. |
 
-### Ejemplo de solicitud
+Ejemplo de solicitud:
 
 ```json
-{
-  "message": "No puedo iniciar sesión",
-  "mode": "traditional"
-}
+{ "message": "No puedo iniciar sesión", "mode": "traditional" }
 ```
 
-### Ejemplo de respuesta esperada
+Ejemplo de respuesta:
 
 ```json
 {
@@ -207,112 +118,49 @@ http://localhost:3000/api/analyze
 }
 ```
 
-### Estructura de respuesta
+Códigos de error: `400` solicitud inválida, `502` falla del motor generativo o ML, `500` error interno.
 
-| Campo               | Tipo    | Descripción                         |
-| ------------------- | ------- | ----------------------------------- |
-| category            | String  | Categoría asignada.                 |
-| priority            | String  | Nivel de prioridad.                 |
-| response            | String  | Respuesta generada o predefinida.   |
-| requiresHumanReview | Boolean | Indica si requiere revisión humana. |
-| mode                | String  | Motor utilizado.                    |
-
-**Nota:** El modo `generative` todavía se encuentra pendiente de integración. Actualmente, el controlador devuelve HTTP 501 para ese modo.
-
-## 10. Pruebas
-
-Para ejecutar las pruebas automatizadas:
+## 8. Pruebas
 
 ```bash
 npm test
 ```
 
-Para ejecutar las pruebas en modo de observación:
+30 pruebas en 5 suites: motor tradicional, motor generativo, motor ML, seguridad e interfaz.
+
+Comparativa de motores (requiere Ollama iniciado):
 
 ```bash
-npm run test:watch
+npm run compare
 ```
 
-El motor tradicional cuenta con pruebas para:
+## 9. Seguridad
 
-- Clasificación de solicitudes de acceso.
-- Clasificación de errores del sistema.
-- Identificación de solicitudes de funcionalidades.
-- Detección de incidentes de seguridad.
-- Asignación de prioridad crítica.
-- Validación de la estructura de respuesta.
+- Validación de entradas con Zod y límite de tamaño de solicitud.
+- Validación estricta del JSON que devuelve el modelo generativo.
+- Redacción de datos sensibles y protección de credenciales con variables de entorno (`.env` no se sube al repositorio).
+- Manejo de errores del proveedor sin exponer detalles internos.
+- Revisión humana obligatoria para incidentes SECURITY.
+- Pruebas de prompt injection incluidas en los casos comparativos.
 
-La validación completa de la API y la comparación de ambos motores se ampliarán durante las siguientes etapas.
+## 10. Resultados comparativos
 
-## 11. Estado actual del desarrollo
+Se evaluaron 16 casos (9 normales, 3 ambiguos y 4 adversariales). Detalle completo en `results/comparison.md`.
 
-| Funcionalidad                                | Estado                  |
-| -------------------------------------------- | ----------------------- |
-| Configuración inicial del proyecto           | Completada              |
-| Configuración de Express                     | Completada              |
-| Estructura modular del proyecto              | Implementada            |
-| Motor tradicional                            | Implementado            |
-| Clasificación de cuatro categorías           | Implementada            |
-| Asignación de prioridades                    | Implementada            |
-| Respuestas predefinidas                      | Implementadas           |
-| Validación de entradas con Zod               | Implementada            |
-| Endpoint POST /api/analyze                   | Implementado            |
-| Pruebas unitarias del motor tradicional      | Implementadas           |
-| Verificación integral del endpoint           | Pendiente de corrección |
-| Integración del modelo generativo            | Pendiente               |
-| Validación de respuestas generativas         | Pendiente               |
-| Protección y manejo de errores del proveedor | Pendiente de completar  |
-| Casos comparativos de ambos motores          | Pendiente               |
-| Cálculo de precisión y exactitud             | Pendiente               |
-| Conclusión técnica                           | Pendiente               |
+| Métrica | Tradicional | Generativo |
+| ------- | ----------- | ---------- |
+| Categoría correcta | 8/16 = 50.0 % | 11/16 = 68.8 % |
+| Exactas (categoría + prioridad) | 6/16 = 37.5 % | 8/16 = 50.0 % |
+| Cumple el formato | 16/16 = 100 % | 14/16 = 87.5 % |
+| Correctas en casos adversariales | 1/4 | 1/4 |
+| Latencia media | 0 ms | 638 ms |
 
-## 12. Seguridad y consideraciones
+Nota: la comparativa automática cubre los motores tradicional y generativo. El motor ML se verificó con pruebas y evidencias de ejecución.
 
-El sistema contempla las siguientes medidas:
+## 11. Evidencias
 
-- Validación de los mensajes recibidos.
-- Restricción del tamaño de las solicitudes.
-- Manejo centralizado de errores.
-- Identificación de incidentes de seguridad.
-- Revisión humana obligatoria para incidentes clasificados como SECURITY.
-- Protección de credenciales y variables de entorno durante la integración generativa.
-- Validación de la estructura de las respuestas del modelo.
+La carpeta `docs/evidence/` contiene la salida de `npm test`, la comparativa y las peticiones reales a la API de cada motor.
 
-Estas medidas se completarán y verificarán conforme avance el desarrollo.
+## 12. Estado
 
-## 13. Evaluación comparativa
-
-Como parte del reto, se utilizarán al menos diez casos diferentes para evaluar ambos motores.
-
-Los casos deberán contemplar:
-
-- Solicitudes de acceso.
-- Reportes de errores.
-- Solicitudes de funcionalidades.
-- Incidentes de seguridad.
-- Mensajes ambiguos.
-- Intentos de prompt injection.
-
-Los resultados se compararán con categorías y prioridades de referencia previamente establecidas.
-
-Se calculará la precisión de cada motor y se documentarán los resultados para determinar sus diferencias y limitaciones.
-
-## 14. Entregables finales
-
-El proyecto deberá incluir:
-
-1. Repositorio funcional.
-2. Código fuente de ambos motores.
-3. API REST funcional.
-4. README con instrucciones de instalación y ejecución.
-5. Evidencias de ejecución.
-6. Al menos diez casos de prueba comparativos.
-7. Tabla de resultados y precisión.
-8. Conclusión técnica de máximo 150 palabras.
-
----
-
-**Proyecto:** AI Support Engine  
-**Tipo:** Prototipo de clasificación y análisis de solicitudes de soporte técnico  
-**Entorno:** Node.js / Express  
-**Estado:** Desarrollo en progreso
+Todos los motores, la interfaz web, las pruebas y la comparativa están integrados en `dev`.
