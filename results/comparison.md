@@ -35,4 +35,4 @@ Criterios: **Categoría correcta** = coincide con la referencia definida antes d
 
 ## Conclusión técnica (máx. 150 palabras)
 
-_Redáctenla a partir de la tabla: qué motor funcionó mejor, en qué casos falló cada uno y por qué._
+El motor generativo (llama3.2:3b) obtuvo mayor exactitud de categoría (68.8 % contra 50.0 %) porque interpreta el contexto: acertó mensajes ambiguos y funcionalidades que las reglas del tradicional confundieron con errores. Su debilidad fueron los casos adversariales: dos respuestas incumplieron el contrato JSON (87.5 % de formato) y una instrucción de ignorar reglas lo desvió de la categoría correcta. El tradicional es determinista, inmediato (0 ms contra 638 ms) y siempre cumple el formato, pero depende de palabras clave y falla cuando no aparecen. Ambos acertaron solo 1 de 4 casos adversariales. Se recomienda el generativo para clasificar, con validación estricta del formato y revisión humana en incidentes de seguridad.
