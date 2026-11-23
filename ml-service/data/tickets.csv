@@ -1,41 +1,202 @@
+
 message,category
+"No puedo desbloquear mi usuario",ACCESS
 "No puedo iniciar sesión en mi cuenta",ACCESS
 "Olvidé mi contraseña y no puedo entrar",ACCESS
-"Mi usuario no reconoce mis credenciales",ACCESS
-"No puedo recuperar el acceso a mi cuenta",ACCESS
-"Necesito restablecer mi contraseña",ACCESS
-"No puedo acceder al sistema",ACCESS
-"Mi cuenta está bloqueada",ACCESS
-"El inicio de sesión no funciona para mi usuario",ACCESS
+"Mi usuario aparece bloqueado",ACCESS
+"No recibo el código de verificación",ACCESS
+"La aplicación no reconoce mi contraseña",ACCESS
+"No puedo recuperar mi cuenta",ACCESS
+"Mi sesión se cierra automáticamente",ACCESS
+"No puedo acceder al panel principal",ACCESS
+"El sistema indica que mi usuario no existe",ACCESS
+"No puedo cambiar mi contraseña",ACCESS
+"Mi cuenta está suspendida y no sé por qué",ACCESS
+"No puedo ingresar desde mi computadora",ACCESS
+"El acceso al sistema está denegado",ACCESS
+"No funciona el inicio de sesión",ACCESS
+"No puedo entrar aunque mi contraseña es correcta",ACCESS
+"Mi usuario fue bloqueado después de varios intentos",ACCESS
+"No puedo iniciar sesión desde mi celular",ACCESS
+"El sistema no acepta mi correo electrónico",ACCESS
+"No puedo validar mi identidad",ACCESS
+"Necesito desbloquear mi cuenta",ACCESS
+"No me permite acceder a mi perfil",ACCESS
+"Mi contraseña temporal no funciona",ACCESS
+"No puedo ingresar al sistema administrativo",ACCESS
+"El acceso de mi cuenta expiró",ACCESS
+"No puedo iniciar sesión después de actualizar la aplicación",ACCESS
+"Me aparece un error al intentar entrar",ACCESS
+"No puedo acceder con mi usuario registrado",ACCESS
+"El sistema no envía el enlace para recuperar contraseña",ACCESS
+"No puedo iniciar sesión con mi correo",ACCESS
+"Mi cuenta aparece como inactiva",ACCESS
+"No puedo acceder a las opciones de mi perfil",ACCESS
+"El sistema rechaza mis credenciales",ACCESS
 "No puedo entrar después de cambiar mi contraseña",ACCESS
-"Necesito ayuda para recuperar mi acceso",ACCESS
-"La aplicación se cierra cuando inicio sesión",BUG
+"Necesito restablecer mi acceso",ACCESS
+"No puedo autenticarme en la plataforma",ACCESS
+"Mi sesión no permanece abierta",ACCESS
+"No puedo ingresar al módulo de ventas",ACCESS
+"El sistema dice que mi cuenta está bloqueada",ACCESS
+"No puedo acceder a mi usuario desde otro dispositivo",ACCESS
+"El código de acceso aparece como inválido",ACCESS
+"No puedo recuperar el acceso a mi perfil",ACCESS
+"Mi usuario no tiene permisos para iniciar sesión",ACCESS
+"No puedo entrar al sistema con mis datos",ACCESS
+"El inicio de sesión se queda cargando",ACCESS
+"No puedo acceder después de varios intentos",ACCESS
+"El sistema no reconoce mi usuario",ACCESS
+"No funciona la autenticación de dos pasos",ACCESS
+"No puedo ingresar a mi cuenta empresarial",ACCESS
+"Necesito recuperar mi usuario",ACCESS
+"La aplicación se cierra al cobrar",BUG
+"El sistema se congela al guardar una venta",BUG
+"El botón de imprimir no funciona",BUG
+"Los productos aparecen con precios incorrectos",BUG
+"La aplicación muestra una pantalla en blanco",BUG
+"El total de la compra se calcula mal",BUG
+"No se guardan los cambios realizados",BUG
+"El sistema se cierra al generar una factura",BUG
+"Los reportes muestran información incorrecta",BUG
+"La búsqueda de productos no funciona",BUG
+"El inventario no actualiza las cantidades",BUG
+"La aplicación tarda demasiado en cargar",BUG
+"El botón de eliminar no responde",BUG
+"Las ventas aparecen duplicadas",BUG
 "El sistema muestra un error al guardar",BUG
-"El botón de enviar no responde",BUG
-"La página se queda cargando indefinidamente",BUG
-"Los datos desaparecen después de actualizar",BUG
-"El sistema muestra información incorrecta",BUG
-"Hay un error al generar el reporte",BUG
-"La aplicación presenta fallas al abrir",BUG
-"No funciona la búsqueda de registros",BUG
-"El sistema se congela al procesar una solicitud",BUG
-"Quisiera agregar un filtro de búsqueda",FEATURE
-"Necesitamos una opción para exportar reportes",FEATURE
-"Sería útil agregar notificaciones automáticas",FEATURE
-"Solicito una función para descargar archivos",FEATURE
-"Me gustaría tener un panel de estadísticas",FEATURE
-"Agregar una opción para cambiar el idioma",FEATURE
-"Necesitamos poder editar el perfil de usuario",FEATURE
-"Quisiera una función para programar recordatorios",FEATURE
-"Sería bueno incorporar búsqueda avanzada",FEATURE
-"Solicito agregar un historial de actividades",FEATURE
-"Detecté un posible acceso no autorizado",SECURITY
-"Creo que alguien está intentando robar mi cuenta",SECURITY
-"El sistema expuso información confidencial",SECURITY
-"Encontré una vulnerabilidad de seguridad",SECURITY
-"Un usuario puede consultar datos de otra cuenta",SECURITY
-"Recibí un enlace sospechoso para obtener mis credenciales",SECURITY
-"Se filtraron datos personales de los usuarios",SECURITY
-"Hay actividad sospechosa en mi cuenta",SECURITY
-"Un usuario sin permisos puede acceder al panel administrativo",SECURITY
-"Creo que mis credenciales fueron comprometidas",SECURITY
+"No puedo imprimir los comprobantes",BUG
+"El módulo de clientes deja de responder",BUG
+"Los impuestos se calculan incorrectamente",BUG
+"La aplicación se queda congelada al abrir",BUG
+"El sistema no registra los pagos",BUG
+"Las fechas aparecen incorrectas en los reportes",BUG
+"El carrito de compras no actualiza los productos",BUG
+"El sistema pierde información al actualizar",BUG
+"El botón de cancelar no funciona",BUG
+"El programa se cierra al consultar inventario",BUG
+"Los datos no se muestran correctamente",BUG
+"El sistema no permite finalizar una venta",BUG
+"Las facturas aparecen con importes incorrectos",BUG
+"El módulo de pagos presenta errores",BUG
+"El sistema muestra productos que ya fueron eliminados",BUG
+"La pantalla de inicio tarda en cargar",BUG
+"El filtro de fechas no funciona",BUG
+"El sistema no calcula correctamente los descuentos",BUG
+"Los movimientos de inventario no se registran",BUG
+"La aplicación se bloquea al generar un ticket",BUG
+"El botón de actualizar no realiza ninguna acción",BUG
+"Los datos de los clientes desaparecieron",BUG
+"El sistema presenta errores al cerrar caja",BUG
+"No se puede completar el proceso de facturación",BUG
+"El buscador muestra resultados equivocados",BUG
+"La aplicación no responde al seleccionar un producto",BUG
+"Los totales de caja no coinciden",BUG
+"El sistema genera facturas incompletas",BUG
+"El módulo de inventario no carga",BUG
+"La aplicación muestra un mensaje de error inesperado",BUG
+"Los registros no se ordenan correctamente",BUG
+"El sistema no guarda las notas de venta",BUG
+"El botón de exportar provoca un error",BUG
+"El sistema duplica los registros al actualizar",BUG
+"El reporte de ventas no coincide con las transacciones",BUG
+"Agreguen exportación de reportes",FEATURE
+"Necesito un módulo para administrar proveedores",FEATURE
+"Sería útil agregar un modo oscuro",FEATURE
+"Quiero poder descargar las facturas en PDF",FEATURE
+"Agreguen notificaciones cuando haya poco inventario",FEATURE
+"Necesitamos un calendario para programar pedidos",FEATURE
+"Me gustaría tener filtros avanzados en los reportes",FEATURE
+"Agreguen la opción de cambiar el idioma",FEATURE
+"Quiero poder registrar varios almacenes",FEATURE
+"Sería bueno integrar pagos con tarjeta",FEATURE
+"Necesitamos una aplicación móvil",FEATURE
+"Agreguen un historial de compras por cliente",FEATURE
+"Quiero poder personalizar los comprobantes",FEATURE
+"Agreguen gráficos para visualizar las ventas",FEATURE
+"Necesito una opción para importar productos desde Excel",FEATURE
+"Sería útil agregar códigos QR a los productos",FEATURE
+"Quiero recibir notificaciones por correo",FEATURE
+"Agreguen un módulo para administrar empleados",FEATURE
+"Necesitamos una función para generar cotizaciones",FEATURE
+"Quiero poder programar reportes automáticos",FEATURE
+"Agreguen una opción para duplicar facturas",FEATURE
+"Me gustaría tener un buscador por código de barras",FEATURE
+"Necesito una sección de estadísticas mensuales",FEATURE
+"Agreguen soporte para múltiples monedas",FEATURE
+"Quiero poder adjuntar archivos a los clientes",FEATURE
+"Sería bueno agregar un chat de soporte",FEATURE
+"Necesitamos una opción para gestionar devoluciones",FEATURE
+"Agreguen una función para comparar ventas",FEATURE
+"Quiero poder editar las plantillas de factura",FEATURE
+"Necesito exportar el inventario a Excel",FEATURE
+"Agreguen recordatorios de pagos pendientes",FEATURE
+"Me gustaría poder administrar sucursales",FEATURE
+"Necesitamos una opción para crear promociones",FEATURE
+"Quiero consultar las ventas desde mi celular",FEATURE
+"Agreguen un módulo para controlar gastos",FEATURE
+"Sería útil agregar firmas digitales",FEATURE
+"Necesito generar reportes personalizados",FEATURE
+"Quiero poder agregar imágenes a los productos",FEATURE
+"Agreguen una función para enviar facturas por correo",FEATURE
+"Me gustaría tener una sección de productos favoritos",FEATURE
+"Necesitamos integrar el sistema con una tienda en línea",FEATURE
+"Agreguen una opción para programar respaldos",FEATURE
+"Quiero poder consultar el historial de modificaciones",FEATURE
+"Necesito un panel de indicadores financieros",FEATURE
+"Agreguen una función para escanear códigos de barras",FEATURE
+"Me gustaría poder administrar diferentes roles",FEATURE
+"Quiero recibir alertas de pedidos nuevos",FEATURE
+"Agreguen una opción para generar etiquetas de productos",FEATURE
+"Necesitamos una función para gestionar garantías",FEATURE
+"Me gustaría tener reportes comparativos por sucursal",FEATURE
+"Puedo consultar datos de otra cuenta",SECURITY
+"Un usuario puede ver información de otros clientes",SECURITY
+"El sistema permite acceder sin autorización",SECURITY
+"Mi cuenta muestra información de otro usuario",SECURITY
+"Los datos personales están visibles públicamente",SECURITY
+"Un usuario puede modificar registros ajenos",SECURITY
+"Las contraseñas aparecen visibles en pantalla",SECURITY
+"El sistema permite entrar sin verificar la identidad",SECURITY
+"Encontré información confidencial de otra empresa",SECURITY
+"Los permisos de administrador están disponibles para todos",SECURITY
+"Se puede consultar información privada sin autorización",SECURITY
+"Mi sesión aparece abierta en otro dispositivo desconocido",SECURITY
+"El sistema no cierra las sesiones después de cerrar cuenta",SECURITY
+"Los documentos privados pueden ser consultados por otros usuarios",SECURITY
+"Un empleado puede acceder a funciones restringidas",SECURITY
+"El sistema permite modificar los permisos de otros usuarios",SECURITY
+"Los datos bancarios aparecen expuestos",SECURITY
+"Se puede acceder a cuentas ajenas cambiando el identificador",SECURITY
+"Los archivos privados no tienen restricciones de acceso",SECURITY
+"Detecté un acceso desconocido a mi cuenta",SECURITY
+"El sistema almacena contraseñas sin protección adecuada",SECURITY
+"Un usuario sin permisos puede consultar información financiera",SECURITY
+"Las sesiones de otros usuarios pueden permanecer abiertas",SECURITY
+"El sistema permite descargar información confidencial",SECURITY
+"Hay información personal visible en los registros públicos",SECURITY
+"Un cliente puede consultar pedidos de otros clientes",SECURITY
+"Los usuarios pueden acceder a módulos restringidos",SECURITY
+"El sistema no protege correctamente los datos personales",SECURITY
+"Se puede cambiar el rol de una cuenta sin autorización",SECURITY
+"Encontré credenciales expuestas en un archivo",SECURITY
+"El sistema permite consultar datos de empleados sin permisos",SECURITY
+"Un usuario puede ver las facturas de otra empresa",SECURITY
+"Las cuentas no solicitan verificación en operaciones sensibles",SECURITY
+"Detecté actividad sospechosa en mi cuenta",SECURITY
+"El sistema permite acceder a documentos de otros departamentos",SECURITY
+"Los datos confidenciales se envían sin protección",SECURITY
+"Un usuario puede consultar información de administradores",SECURITY
+"Los permisos de acceso no se aplican correctamente",SECURITY
+"Hay cuentas activas de empleados que ya no trabajan aquí",SECURITY
+"El sistema expone información privada en sus respuestas",SECURITY
+"Se puede acceder a información restringida desde una cuenta normal",SECURITY
+"Las operaciones importantes no solicitan autenticación adicional",SECURITY
+"Mi cuenta registra inicios de sesión que no reconozco",SECURITY
+"Los datos de los usuarios pueden ser consultados por terceros",SECURITY
+"El sistema no registra correctamente los accesos de usuarios",SECURITY
+"Un usuario puede modificar información financiera sin autorización",SECURITY
+"Se muestran datos personales de clientes sin permiso",SECURITY
+"Los archivos de respaldo contienen información confidencial expuesta",SECURITY
+"El sistema permite mantener acceso después de revocar permisos",SECURITY
+"Detecté una posible exposición de información entre cuentas",SECURITY

@@ -8,6 +8,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import classification_report
+from sklearn.metrics import classification_report, confusion_matrix
 
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -60,6 +61,31 @@ def train():
     ])
 
     model.fit(X_train, y_train)
+    
+    # Evaluación del modelo
+    
+    predictions = model.predict(X_test)
+
+    print("\n=== REPORTE DE CLASIFICACIÓN ===")
+    print(classification_report(y_test, predictions, zero_division=0))
+
+    print("\n=== MATRIZ DE CONFUSIÓN ===")
+    print(confusion_matrix(
+        y_test,
+        predictions,
+        labels=model.classes_
+    ))
+
+    # Prueba con un mensaje nuevo
+    new_message = ["Encontré datos de otros clientes"]
+
+    category = model.predict(new_message)[0]
+    confidence = model.predict_proba(new_message).max()
+
+    print("\n=== PREDICCIÓN DE PRUEBA ===")
+    print("Mensaje:", new_message[0])
+    print("Categoría:", category)
+    print("Score aproximado:", round(confidence, 3))
 
     predictions = model.predict(X_test)
 
