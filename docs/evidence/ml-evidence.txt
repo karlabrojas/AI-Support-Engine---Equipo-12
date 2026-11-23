@@ -1,0 +1,54 @@
+﻿EVIDENCIA MOTOR ML - 11/19/2026 17:58:10
+
+===== HEALTH ML (GET :8000/health) =====
+{
+    "status":  "ok"
+}
+
+===== PETICION ML 1 =====
+POST /api/analyze
+{"message":"No puedo iniciar sesión, me dice contraseña incorrecta.","mode":"machine-learning"}
+HTTP 200
+{
+    "category":  "ACCESS",
+    "priority":  "MEDIUM",
+    "response":  "Su solicitud ha sido clasificada mediante el motor de Machine Learning.",
+    "requiresHumanReview":  true,
+    "mode":  "machine-learning"
+}
+
+===== PETICION ML 2 =====
+POST /api/analyze
+{"message":"La aplicación se cierra sola cada vez que intento exportar el reporte.","mode":"machine-learning"}
+HTTP 200
+{
+    "category":  "BUG",
+    "priority":  "MEDIUM",
+    "response":  "Su solicitud ha sido clasificada mediante el motor de Machine Learning.",
+    "requiresHumanReview":  true,
+    "mode":  "machine-learning"
+}
+
+===== PETICION ML 3 =====
+POST /api/analyze
+{"message":"Sería genial poder exportar los reportes a Excel además de PDF.","mode":"machine-learning"}
+HTTP 200
+{
+    "category":  "FEATURE",
+    "priority":  "MEDIUM",
+    "response":  "Su solicitud ha sido clasificada mediante el motor de Machine Learning.",
+    "requiresHumanReview":  true,
+    "mode":  "machine-learning"
+}
+
+===== PETICION ML 4 =====
+POST /api/analyze
+{"message":"Detectamos tráfico inusual y una posible filtración de la base de datos.","mode":"machine-learning"}
+HTTP 200
+{
+    "category":  "SECURITY",
+    "priority":  "HIGH",
+    "response":  "Su solicitud ha sido clasificada mediante el motor de Machine Learning.",
+    "requiresHumanReview":  true,
+    "mode":  "machine-learning"
+}
