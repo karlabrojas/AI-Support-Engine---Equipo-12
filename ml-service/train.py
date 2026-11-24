@@ -104,7 +104,7 @@ def train():
 
 if __name__ == "__main__":
     train()
-EOFcat > ml-service/train.py <<'EOF'
+
 from pathlib import Path
 
 import joblib
